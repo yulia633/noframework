@@ -1,0 +1,15 @@
+{
+    "name": "julbel/php-app",
+    "description": "A php app",
+    "keywords": ["php", "no-framework-app", "pure-php"],
+    "license": "MIT",
+    "type": "project",
+    "require": {
+      "php": "^8.0"
+    },
+    "autoload": {
+      "psr-4": {
+        "SocialNews\\": "src/"
+      }
+    }
+  }

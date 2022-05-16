@@ -5,4 +5,8 @@ require ROOT_DIR . '/vendor/autoload.php';
 
 \Tracy\Debugger::enable();
 
-echo 'Привет из загрузочного файла :)';
+$request = \Symfony\Component\HttpFoundation\Request::createFromGlobals();
+$content = "Hello  {$request->get('name', 'visitor')}";
+$response = new \Symfony\Component\HttpFoundation\Response($content);
+$response->prepare($request);
+$response->send();

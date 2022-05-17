@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace SocialNews\Framework\Rendering;
 
-use Twig_Environment;
+use \Twig\Environment;
 
 final class TwigTemplateRenderer implements TemplateRenderer
 {
     private $twigEnvironment;
-    
-    public function __construct(Twig_Environment $twigEnvironment)
+
+    public function __construct(Environment $twigEnvironment)
     {
         $this->twigEnvironment = $twigEnvironment;
     }

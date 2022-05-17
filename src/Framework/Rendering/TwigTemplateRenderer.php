@@ -14,6 +14,7 @@ final class TwigTemplateRenderer implements TemplateRenderer
     {
         $this->twigEnvironment = $twigEnvironment;
     }
+    
     public function render(string $template, array $data = []): string
     {
         return $this->twigEnvironment->render($template, $data);

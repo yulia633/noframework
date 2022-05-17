@@ -15,6 +15,7 @@ final class TwigTemplateRendererFactory
     {
         $this->templateDirectory = $templateDirectory;
     }
+    
     public function create(): TwigTemplateRenderer
     {
         $templateDirectory = $this->templateDirectory->toString();

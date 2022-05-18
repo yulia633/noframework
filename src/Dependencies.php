@@ -11,6 +11,10 @@ use SocialNews\FrontPage\Infrastructure\DbalSubmissionsQuery;
 use Doctrine\DBAL\Connection;
 use SocialNews\Framework\Dbal\ConnectionFactory;
 use SocialNews\Framework\Dbal\DatabaseUrl;
+use SocialNews\Framework\Csrf\TokenStorage;
+use SocialNews\Framework\Csrf\SymfonySessionTokenStorage;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 $injector = new Injector();
 
@@ -36,6 +40,9 @@ $injector->share(Connection::class);
 
 $injector->alias(SubmissionsQuery::class, DbalSubmissionsQuery::class);
 $injector->share(SubmissionsQuery::class);
+
+$injector->alias(TokenStorage::class, SymfonySessionTokenStorage::class);
+$injector->alias(SessionInterface::class, Session::class);
 
 $injector->define(TemplateDirectory::class, [':rootDirectory' => ROOT_DIR]);
 

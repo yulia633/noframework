@@ -23,4 +23,9 @@ final class Token
         $token = bin2hex(random_bytes(256));
         return new Token($token);
     }
+
+    public function equals(Token $token): bool
+    {
+        return ($this->token === $token->toString());
+    }
 }

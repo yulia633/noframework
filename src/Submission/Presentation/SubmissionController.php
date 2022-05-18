@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use SocialNews\Framework\Rendering\TemplateRenderer;
 use Symfony\Component\HttpFoundation\Session\Session;
+use SocialNews\Submission\Application\SubmitLink;
 
 final class SubmissionController
 {
@@ -47,7 +48,10 @@ final class SubmissionController
             return $response;
         }
 
-        // save the submission…
+        $this->submitLinkHandler->handle(new SubmitLink(
+            $request->get('url'),
+            $request->get('title')
+        ));
 
         $this->session->getFlashBag()->add(
             'success',

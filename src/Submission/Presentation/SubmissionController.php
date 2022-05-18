@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use SocialNews\Framework\Rendering\TemplateRenderer;
 use Symfony\Component\HttpFoundation\Session\Session;
+use SocialNews\Submission\Application\SubmitLinkHandler;
 use SocialNews\Submission\Application\SubmitLink;
 
 final class SubmissionController
@@ -21,14 +22,18 @@ final class SubmissionController
 
     private $session;
 
+    private $submitLinkHandler;
+
     public function __construct(
         TemplateRenderer $templateRenderer,
         StoredTokenValidator $storedTokenValidator,
-        Session $session
+        Session $session,
+        SubmitLinkHandler $submitLinkHandler,
     ) {
         $this->templateRenderer = $templateRenderer;
         $this->storedTokenValidator = $storedTokenValidator;
         $this->session = $session;
+        $this->submitLinkHandler = $submitLinkHandler;
     }
 
     public function show(): Response

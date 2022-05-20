@@ -30,6 +30,6 @@ final class DbalSubmissionRepository implements SubmissionRepository
                 'datetime'
             ),
         ]);
-        $qb->execute();
+        $qb->executeStatement();
     }
 }

@@ -10,12 +10,12 @@ use Symfony\Component\HttpFoundation\Request;
 final class SubmissionFormFactory
 {
     private $storedTokenValidator;
-    
+
     public function __construct(StoredTokenValidator $storedTokenValidator)
     {
         $this->storedTokenValidator = $storedTokenValidator;
     }
-    
+
     public function createFromRequest(Request $request): SubmissionForm
     {
         return new SubmissionForm(

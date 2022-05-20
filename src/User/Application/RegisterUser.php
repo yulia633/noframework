@@ -19,7 +19,7 @@ final class RegisterUser
     {
         return $this->nickname;
     }
-    
+
     public function getPassword(): string
     {
         return $this->password;

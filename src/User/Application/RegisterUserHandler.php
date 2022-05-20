@@ -15,7 +15,7 @@ final class RegisterUserHandler
     {
         $this->userRepository = $userRepository;
     }
-    
+
     public function handle(RegisterUser $command): void
     {
         $user = User::register(

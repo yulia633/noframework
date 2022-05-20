@@ -52,7 +52,7 @@ final class SubmissionController
         }
 
         $this->submitLinkHandler->handle($form->toCommand());
-        
+
         $this->session->getFlashBag()->add(
             'success',
             'Your URL was submitted successfully'

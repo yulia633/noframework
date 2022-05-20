@@ -23,7 +23,7 @@ final class StoredTokenReader
 
         $token = Token::generate();
         $this->tokenStorage->store($key, $token);
-        
+
         return $token;
     }
 }

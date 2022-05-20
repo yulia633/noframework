@@ -39,10 +39,7 @@ final class RegisterUserForm
     {
         $errors = [];
 
-        if (!$this->storedTokenValidator->validate(
-            'registration',
-            new Token($this->token)
-        )) {
+        if (!$this->storedTokenValidator->validate('registration', new Token($this->token))) {
             $errors[] = 'Invalid token';
         }
 

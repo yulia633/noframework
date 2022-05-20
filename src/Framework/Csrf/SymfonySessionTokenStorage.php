@@ -23,7 +23,7 @@ final class SymfonySessionTokenStorage implements TokenStorage
     public function retrieve(string $key): ?Token
     {
         $tokenValue = $this->session->get($key);
-        
+
         if ($tokenValue === null) {
             return null;
         }

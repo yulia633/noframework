@@ -20,7 +20,6 @@ final class DbalSubmissionsQuery implements SubmissionsQuery
     public function execute(): array
     {
         $qb = $this->connection->createQueryBuilder();
-        
         $qb->addSelect('title');
         $qb->addSelect('url');
         $qb->from('submissions');

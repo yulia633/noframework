@@ -36,15 +36,15 @@ final class SubmissionForm
     public function getValidationErrors(): array
     {
         $errors = [];
-        if (!$this->storedTokenValidator->validate(
-            'submission',
-            new Token($this->token)
-        )) {
+
+        if (!$this->storedTokenValidator->validate('submission', new Token($this->token))) {
             $errors[] = 'Invalid token';
         }
+
         if (mb_strlen($this->title) < 1 || mb_strlen($this->title) > 200) {
             $errors[] = 'Title must be between 1 and 200 characters';
         }
+
         if (mb_strlen($this->url) < 1 || mb_strlen($this->url) > 200) {
             $errors[] = 'URL must be between 1 and 200 characters';
         }

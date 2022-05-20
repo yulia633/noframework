@@ -12,7 +12,7 @@ final class DatabaseUrl
     {
         $this->url = $url;
     }
-    
+
     public function toString(): string
     {
         return $this->url;

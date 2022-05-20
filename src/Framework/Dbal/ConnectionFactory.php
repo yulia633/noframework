@@ -16,7 +16,7 @@ final class ConnectionFactory
     {
         $this->databaseUrl = $databaseUrl;
     }
-    
+
     public function create(): Connection
     {
         return DriverManager::getConnection(

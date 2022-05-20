@@ -15,7 +15,7 @@ final class RegisterUserFormFactory
     {
         $this->storedTokenValidator = $storedTokenValidator;
     }
-    
+
     public function createFromRequest(Request $request): RegisterUserForm
     {
         return new RegisterUserForm(

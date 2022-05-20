@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace SocialNews\Framework\Rendering;
 
-use \Twig\Environment;
+use Twig\Environment;
 
 final class TwigTemplateRenderer implements TemplateRenderer
 {
@@ -14,7 +14,7 @@ final class TwigTemplateRenderer implements TemplateRenderer
     {
         $this->twigEnvironment = $twigEnvironment;
     }
-    
+
     public function render(string $template, array $data = []): string
     {
         return $this->twigEnvironment->render($template, $data);

@@ -7,7 +7,7 @@ namespace SocialNews\Framework\Csrf;
 final class StoredTokenValidator
 {
     private $tokenStorage;
-    
+
     public function __construct(TokenStorage $tokenStorage)
     {
         $this->tokenStorage = $tokenStorage;

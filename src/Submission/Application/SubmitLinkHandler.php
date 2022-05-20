@@ -15,7 +15,7 @@ final class SubmitLinkHandler
     {
         $this->submissionRepository = $submissionRepository;
     }
-    
+
     public function handle(SubmitLink $command): void
     {
         $submission = Submission::submit(

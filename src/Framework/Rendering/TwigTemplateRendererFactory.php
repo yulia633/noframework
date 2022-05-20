@@ -7,9 +7,9 @@ namespace SocialNews\Framework\Rendering;
 use SocialNews\Framework\Csrf\StoredTokenReader;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface;
-use \Twig\Loader\FilesystemLoader;
-use \Twig\Environment;
-use \Twig\TwigFunction;
+use Twig\Loader\FilesystemLoader;
+use Twig\Environment;
+use Twig\TwigFunction;
 
 final class TwigTemplateRendererFactory
 {

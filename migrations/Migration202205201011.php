@@ -6,7 +6,7 @@ namespace Migrations;
 
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Schema\Schema;
-use Doctrine\DBAL\Types\Type;
+use Doctrine\DBAL\Types\Types;
 
 final class Migration202205201011
 {
@@ -22,7 +22,7 @@ final class Migration202205201011
         $schema = new Schema();
         $this->createUsersTable($schema);
         $queries = $schema->toSql($this->connection->getDatabasePlatform());
-        
+
         foreach ($queries as $query) {
             $this->connection->executeQuery($query);
         }
@@ -31,14 +31,14 @@ final class Migration202205201011
     private function createUsersTable(Schema $schema): void
     {
         $table = $schema->createTable('users');
-        $table->addColumn('id', Type::GUID);
-        $table->addColumn('nickname', Type::STRING);
-        $table->addColumn('password_hash', TYPE::STRING);
-        $table->addColumn('creation_date', TYPE::DATETIME);
-        $table->addColumn('failed_login_attempts', TYPE::INTEGER, [
+        $table->addColumn('id', Types::GUID);
+        $table->addColumn('nickname', Types::STRING);
+        $table->addColumn('password_hash', Types::STRING);
+        $table->addColumn('creation_date', Types::DATE_IMMUTABLE);
+        $table->addColumn('failed_login_attempts', Types::INTEGER, [
             'default' => 0,
         ]);
-        $table->addColumn('last_failed_login_attempt', TYPE::DATETIME, [
+        $table->addColumn('last_failed_login_attempt', Types::DATE_IMMUTABLE, [
             'notnull' => false,
         ]);
     }

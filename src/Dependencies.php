@@ -17,6 +17,10 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\HttpFoundation\Session\Session;
 use SocialNews\Submission\Domain\SubmissionRepository;
 use SocialNews\Submission\Infrastructure\DbalSubmissionRepository;
+use SocialNews\User\Domain\UserRepository;
+use SocialNews\User\Infrastructure\DbalUserRepository;
+use SocialNews\User\Application\NicknameTakenQuery;
+use SocialNews\User\Infrastructure\DbalNicknameTakenQuery;
 
 $injector = new Injector();
 
@@ -49,5 +53,9 @@ $injector->alias(SessionInterface::class, Session::class);
 $injector->define(TemplateDirectory::class, [':rootDirectory' => ROOT_DIR]);
 
 $injector->alias(SubmissionRepository::class, DbalSubmissionRepository::class);
+
+$injector->alias(UserRepository::class, DbalUserRepository::class);
+
+$injector->alias(NicknameTakenQuery::class, DbalNicknameTakenQuery::class);
 
 return $injector;

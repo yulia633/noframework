@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace SocialNews\User\Presentation;
 
 use SocialNews\Framework\Csrf\StoredTokenValidator;
+use SocialNews\User\Application\NicknameTakenQuery;
 use SocialNews\User\Application\RegisterUser;
 use SocialNews\Framework\Csrf\Token;
 
@@ -14,9 +15,11 @@ final class RegisterUserForm
     private $token;
     private $nickname;
     private $password;
+    private $nicknameTakenQuery;
 
     public function __construct(
         StoredTokenValidator $storedTokenValidator,
+        NicknameTakenQuery $nicknameTakenQuery,
         string $token,
         string $nickname,
         string $password
@@ -25,6 +28,7 @@ final class RegisterUserForm
         $this->token = $token;
         $this->nickname = $nickname;
         $this->password = $password;
+        $this->nicknameTakenQuery = $nicknameTakenQuery;
     }
 
     public function hasValidationErrors(): bool
@@ -49,6 +53,10 @@ final class RegisterUserForm
 
         if (!ctype_alnum($this->nickname)) {
             $errors[] = 'Nickname can only consist of letters and numbers';
+        }
+
+        if ($this->nicknameTakenQuery->execute($this->nickname)) {
+            $errors[] = 'This nickname is already being used';
         }
 
         if (mb_strlen($this->password) < 8) {

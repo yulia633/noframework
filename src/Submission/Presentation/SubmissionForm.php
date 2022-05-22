@@ -11,11 +11,8 @@ use SocialNews\Submission\Application\SubmitLink;
 final class SubmissionForm
 {
     private $storedTokenValidator;
-
     private $token;
-
     private $title;
-
     private $url;
 
     public function __construct(

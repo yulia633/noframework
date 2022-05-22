@@ -14,11 +14,8 @@ use SocialNews\Submission\Application\SubmitLinkHandler;
 final class SubmissionController
 {
     private $templateRenderer;
-
     private $submissionFormFactory;
-
     private $session;
-
     private $submitLinkHandler;
 
     public function __construct(

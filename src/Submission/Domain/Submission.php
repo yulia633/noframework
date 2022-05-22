@@ -11,11 +11,8 @@ use Ramsey\Uuid\Uuid;
 final class Submission
 {
     private $id;
-
     private $url;
-
     private $title;
-
     private $creationDate;
 
     private function __construct(

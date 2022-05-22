@@ -11,7 +11,6 @@ use Symfony\Component\HttpFoundation\Response;
 final class FrontPageController
 {
     private $templateRenderer;
-
     private $submissionsQuery;
 
     public function __construct(

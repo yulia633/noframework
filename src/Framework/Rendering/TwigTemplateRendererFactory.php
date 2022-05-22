@@ -14,9 +14,7 @@ use Twig\TwigFunction;
 final class TwigTemplateRendererFactory
 {
     private $storedTokenReader;
-
     private $templateDirectory;
-
     private $session;
 
     public function __construct(

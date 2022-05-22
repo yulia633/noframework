@@ -7,7 +7,6 @@ namespace SocialNews\FrontPage\Application;
 final class Submission
 {
     private $url;
-
     private $title;
 
     public function __construct(string $url, string $title)

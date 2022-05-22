@@ -10,16 +10,19 @@ use SocialNews\User\Domain\User;
 use SocialNews\User\Domain\UserRepository;
 use DateTimeImmutable;
 use Ramsey\Uuid\Uuid;
+use Symfony\Component\HttpFoundation\Session\Session;
 use SocialNews\User\Domain\UserWasLoggedIn;
 use LogicException;
 
 final class DbalUserRepository implements UserRepository
 {
     private $connection;
+    private $session;
 
-    public function __construct(Connection $connection)
+    public function __construct(Connection $connection, Session $session)
     {
         $this->connection = $connection;
+        $this->session = $session;
     }
 
     public function add(User $user): void

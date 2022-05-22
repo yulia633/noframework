@@ -33,4 +33,9 @@ return [
         '/login',
         'SocialNews\User\Presentation\LoginController#show'
     ],
+    [
+        'POST',
+        '/login',
+        'SocialNews\User\Presentation\LoginController#logIn'
+    ],
 ];

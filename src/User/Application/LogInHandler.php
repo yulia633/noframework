@@ -17,6 +17,13 @@ final class LogInHandler
 
     public function handle(LogIn $command): void
     {
-        // log in
+        $user = $this->userRepository->findByNickname($command->getNickname());
+
+        if ($user === null) {
+            return;
+        }
+
+        $user->logIn($command->getPassword());
+        $this->userRepository->save($user);
     }
 }

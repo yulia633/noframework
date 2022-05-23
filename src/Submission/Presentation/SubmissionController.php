@@ -12,6 +12,7 @@ use SocialNews\Framework\Rendering\TemplateRenderer;
 use Symfony\Component\HttpFoundation\Session\Session;
 use SocialNews\Submission\Application\SubmitLinkHandler;
 use SocialNews\Framework\Rbac\Permission;
+use SocialNews\Framework\Rbac\AuthenticatedUser;
 
 final class SubmissionController
 {
@@ -69,7 +70,11 @@ final class SubmissionController
             return $response;
         }
 
-        $this->submitLinkHandler->handle($form->toCommand());
+        if (!$this->user instanceof AuthenticatedUser) {
+            throw new \LogicException('Only authenticated users can submit links');
+        }
+
+        $this->submitLinkHandler->handle($form->toCommand($this->user));
 
         $this->session->getFlashBag()->add(
             'success',

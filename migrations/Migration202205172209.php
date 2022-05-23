@@ -34,5 +34,6 @@ final class Migration202205172209
         $table->addColumn('title', Types::STRING);
         $table->addColumn('url', Types::STRING);
         $table->addColumn('creation_date', Types::DATE_IMMUTABLE);
+        $table->addColumn('author_user_id', Types::GUID);
     }
 }

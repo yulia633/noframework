@@ -23,6 +23,9 @@ final class DbalSubmissionRepository implements SubmissionRepository
         $qb->insert('submissions');
         $qb->values([
             'id' => $qb->createNamedParameter($submission->getId()->toString()),
+            'author_user_id' => $qb->createNamedParameter(
+                $submission->getAuthorId()->toString()
+            ),
             'title' => $qb->createNamedParameter($submission->getTitle()),
             'url' => $qb->createNamedParameter($submission->getUrl()),
             'creation_date' => $qb->createNamedParameter(
